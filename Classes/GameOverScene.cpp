@@ -21,18 +21,16 @@ bool GameOver::init()
 
 	TTFConfig config("yuehei.otf",48);
 
-	// 添加背景图片
     auto sprite = Sprite::create("scene_end.png");
 	sprite->setPosition(Point(GAME_SCREEN_WIDTH/2,GAME_SCREEN_HEIGHT/2));
     this->addChild(sprite);
 
-	// 分数
+
 	auto labelScore = Label::createWithTTF(config, "  0  ");
 	labelScore -> setPosition(Point( GAME_SCREEN_WIDTH/2 , GAME_SCREEN_HEIGHT/1.4));
 	labelScore -> setTag(13);
 	this->addChild(labelScore);
 
-	// 添加重新开始按钮
 	auto restartItem = MenuItemImage::create(
                                            "btn_restart01.png",
                                            "btn_restart02.png",
@@ -40,7 +38,7 @@ bool GameOver::init()
     
 	restartItem->setPosition(Vec2(GAME_SCREEN_WIDTH/4,GAME_SCREEN_HEIGHT/8));
 
-	// 添加返回主菜单按钮
+
 	auto backItem = MenuItemImage::create(
                                            "btn_back01.png",
                                            "btn_back02.png",
@@ -76,7 +74,7 @@ void GameOver::setScore( int sc )
 
 	if( userDefault->getIntegerForKey("Int") < sc ){
 
-		// 新纪录
+
 		auto newRecord = Sprite::create("sprite_newRecord.png");
 		newRecord -> setPosition(Point( GAME_SCREEN_WIDTH/3.05 , GAME_SCREEN_HEIGHT/1.22));
 		newRecord->setScale(10.0f);// start size
@@ -84,7 +82,7 @@ void GameOver::setScore( int sc )
 
 		this->addChild(newRecord);
 		
-		// 音效
+
 		if (UserDefault::getInstance()->getBoolForKey(SOUND_KEY)) {                      
 			SimpleAudioEngine::getInstance()->playEffect("music_win.wav",false);  
 		}
@@ -93,7 +91,7 @@ void GameOver::setScore( int sc )
 	}
 	else
 	{
-		// 音乐
+
 		if (UserDefault::getInstance()->getBoolForKey(SOUND_KEY)) {                      
 			SimpleAudioEngine::getInstance()->playEffect("music_fail.mp3",false);  
 		}

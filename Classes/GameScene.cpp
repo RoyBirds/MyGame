@@ -17,6 +17,7 @@ GameScene::GameScene()
 , endSprite(NULL)
 , fourBoom(true)//drop animation is vertical
 {
+
 }
 
 Scene* GameScene::createScene( )
@@ -33,12 +34,12 @@ bool GameScene::init( )
 		return false;
 	}
 
-	// 添加背景图片
+
 	auto sprite = Sprite::create("scene_bg.png");
 	sprite->setPosition(Point(GAME_SCREEN_WIDTH/2,GAME_SCREEN_HEIGHT/2));
     this->addChild(sprite,-1);
 
-	// 添加返回按钮
+
 	auto backItem = MenuItemImage::create(
                                            "btn_back01.png",
                                            "btn_back02.png",
@@ -56,30 +57,30 @@ bool GameScene::init( )
 	}
 
 	TTFConfig config("haibaoti.ttf",30);
-	// 最高分
+
 	auto labelHScore = Label::createWithTTF(config, "Highest: 0");
 	labelHScore -> setPosition(Vec2( GAME_SCREEN_WIDTH - labelHScore->getContentSize().width , GAME_SCREEN_HEIGHT - labelHScore->getContentSize().height ));
 	labelHScore -> setString( StringUtils::format("Highest: %d ",userDefault->getIntegerForKey("Int")));
 	this->addChild(labelHScore);
 
-	// 分数
+
 	auto labelScore = Label::createWithTTF(config,"Score: 0");
 	labelScore -> setPosition(Vec2( GAME_SCREEN_WIDTH/2 , GAME_SCREEN_HEIGHT - labelScore->getContentSize().height*2.6 ));
 	labelScore -> setTag(10);
 	this->addChild(labelScore);
 
-	// 时间
+
 	auto labelTime = Label::createWithTTF(config,"Time: 60");
 	labelTime -> setPosition(Vec2( labelTime->getContentSize().width , GAME_SCREEN_HEIGHT - labelTime->getContentSize().height ));
 	labelTime -> setTag(11);
 	this ->addChild(labelTime);
 	
 
-	// 初始化坐标值
+
 	mapLBX = (GAME_SCREEN_WIDTH - SPRITE_WIDTH * COLS - (COLS - 1) * BOADER_WIDTH) / 2;
 	mapLBY = (GAME_SCREEN_HEIGHT - SPRITE_WIDTH * ROWS - (ROWS - 1) * BOADER_WIDTH) / 2;
 
-	// 加载plist和png
+
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("icon.plist");
     spriteSheet = SpriteBatchNode::create("icon.png");
     addChild(spriteSheet);
@@ -88,7 +89,7 @@ bool GameScene::init( )
 	scheduleUpdate();
 	schedule(schedule_selector(GameScene::myClock),1.0f );
 
-	// 触摸事件处理
+
     auto touchListener = EventListenerTouchOneByOne::create();
 	touchListener->onTouchBegan = CC_CALLBACK_2(GameScene::onTouchBegan, this);
     touchListener->onTouchMoved = CC_CALLBACK_2(GameScene::onTouchMoved, this);
@@ -99,24 +100,23 @@ bool GameScene::init( )
 
 void GameScene::createSprite( int row , int col )
 {
-	// 先创建一个寿司
+
 	SpriteShape *spr = SpriteShape::create(row, col);
     
-    // 创建动作动画
+
     Point endPosition = positionOfItem(row, col);
 	Point startPosition = Point(endPosition.x, endPosition.y + GAME_SCREEN_HEIGHT / 2);
     spr->setPosition(startPosition);
 	float speed = startPosition.y / (1.5 * GAME_SCREEN_HEIGHT );
     spr->runAction(MoveTo::create(speed, endPosition));
-    // 加入到spriteSheet中,等待绘制
+
     spriteSheet->addChild(spr);
 
-	// 数组相应位置，置上寿司对象
     map[row][col] = spr;
 	
 }
 
-// 获取坐标值
+
 Point GameScene::positionOfItem(int row, int col)
 {
 	float x = mapLBX + (SPRITE_WIDTH + BOADER_WIDTH) * col + SPRITE_WIDTH / 2;
@@ -124,7 +124,7 @@ Point GameScene::positionOfItem(int row, int col)
     return Point(x, y);
 }
 
-// 初始化二维数组
+
 void GameScene::initMap( )
 {
 	for( int r = 0 ; r < ROWS ; ++r ){
@@ -134,12 +134,12 @@ void GameScene::initMap( )
 	}
 }
 
-// 更新函数
+
 void GameScene::update( float t )
 {
-	 // 检测是否在执行动作
+
 	if ( isAction ) {
-        // 设置为false
+
         isAction = false;
 		for( int r = 0 ; r < ROWS ; ++r )	{
 			for( int c = 0  ; c < COLS ; ++c )	{
@@ -152,16 +152,16 @@ void GameScene::update( float t )
 		}
 	}
     
-    // 如果寿司正在移动中，忽视触摸事件
+
 	isTouchEna = !isAction;
     
     if (!isAction) {
 		if ( isFillSprite ) {
-            //爆炸效果结束后才掉落新寿司，增强打击感
+
             fillSprite();
             isFillSprite = false;
 
-			// 检测有没有可移动精灵
+
 			if( isHaveMove() == false )
 			{
 				for( int r = 0 ; r < ROWS ; ++r )
@@ -174,27 +174,26 @@ void GameScene::update( float t )
         }
     }
 
-	// 分数变化
+
 	Label *labelScore = (Label *)this -> getChildByTag(10);
 	labelScore -> setString( StringUtils::format("Score: %d ",this->getScore()));
 
 }
 
-void GameScene::fillSprite()
-{
-	 // 重置移动方向标志
-    fourBoom = true;
-    isAction = true;
-    int sum = 0;
+void GameScene::fillSprite() {
+	志
+	fourBoom = true;
+	isAction = true;
+	int sum = 0;
 
     int *colEmptyInfo = (int *)malloc(sizeof(int) * COLS);
     memset((void *)colEmptyInfo, 0, sizeof(int) * COLS);
     
-    // 将存在的寿司降落下来
+
 	SpriteShape *spr = NULL;
     for (int c = 0; c < COLS; c++) {
         int removedSpriteOfCol = 0;
-        // 自底向上
+
         for (int r = 0; r < ROWS; r++ ) {
             spr = map[r][c];
             if ( spr == NULL ) {
@@ -218,12 +217,12 @@ void GameScene::fillSprite()
             }
         }
         
-        // 记录相应列数移除的数量
+
         colEmptyInfo[c] = removedSpriteOfCol;
 		sum+=removedSpriteOfCol;
     }
     
-    // 新建新的寿司，并降落
+
     for (int c = 0; c < COLS; ++c ) {
         for (int r = ROWS - colEmptyInfo[c]; r < ROWS ; ++r ) {
             createSprite(r,c);
@@ -237,7 +236,7 @@ void GameScene::fillSprite()
 void GameScene::checkAndRemoveSprite()
 {
 	SpriteShape *spr;
-    // 设定寿司的忽视检查
+
 	for( int r = 0 ; r < ROWS ; ++r )	{
 		for( int c = 0 ; c < COLS ; ++c )	{
 			spr = map[r][c];
@@ -260,7 +259,7 @@ void GameScene::checkAndRemoveSprite()
 			}
 
 			if ( spr -> getIgnoreCheck() ) {
-				continue;// 新变化的特殊寿司，不消除
+				continue;
 			}
 			std::list< SpriteShape *> colChainList;
 			getColChain( spr , colChainList );
@@ -293,7 +292,7 @@ void GameScene::checkAndRemoveSprite()
 				}
 				markRemove( spr );
 			}   
-			// 如何是自由掉落产生的4消, 取最后一个变化为特殊寿司
+
 			if (!isSetedIgnoreCheck && longerList.size() > 3) {
 				spr -> setIgnoreCheck(true);
 				spr -> setIsNeedRemove(false);
@@ -302,14 +301,14 @@ void GameScene::checkAndRemoveSprite()
 		}
 	}
 
-	// 3.消除标记了的寿司
+
 	removeSprite();
 }
 
-// 移除寿司
+
 void GameScene::removeSprite()
 {
-	// 做一套移除的动作
+
     isAction = true;
     
 	for( int r = 0 ; r < ROWS ; ++r )	{
@@ -390,13 +389,13 @@ void GameScene::explodeSprite( SpriteShape* spr )
 
 	float time = 0.2;
     
-    // 精灵的动作
+
     spr->runAction(Sequence::create(
                                       ScaleTo::create(time, 0.0),
 									  CallFuncN::create(CC_CALLBACK_1(GameScene::actionEndCallback, this)),
                                       NULL));
     
-    // 爆炸效果 圆圈的动作
+
     auto circleSprite = Sprite::create("circle.png");
 	addChild(circleSprite, 10);
 	circleSprite->setPosition(spr->getPosition());
@@ -483,7 +482,7 @@ void GameScene::actionEndCallback(Node *node)
 
 void GameScene::swapSprite()
 {
-	// 移动中，不允许再次触摸，执行动作设置为true
+
     isAction = true;
     isTouchEna = false;
 
@@ -497,7 +496,7 @@ void GameScene::swapSprite()
 
     float time = 0.2;
     
-    // 在数组中交换位置
+
 	map[ staSprite -> getRow() ][staSprite -> getCol() ] = endSprite;
 	map[ endSprite -> getRow() ][endSprite -> getCol() ] = staSprite;
 
@@ -508,7 +507,7 @@ void GameScene::swapSprite()
     endSprite->setRow(tmpRow);
     endSprite->setCol(tmpCol);
     
-    // 检查是否能消除
+
 	std::list<SpriteShape *> colChainListOfFirst;
     getColChain(staSprite, colChainListOfFirst);
     
@@ -525,13 +524,12 @@ void GameScene::swapSprite()
         || rowChainListOfFirst.size() >= 3
         || colChainListOfSecond.size() >= 3
         || rowChainListOfSecond.size() >= 3) {
-        // 如果能够消除，仅仅进行移动（不会移动回来）
+
         staSprite->runAction(MoveTo::create(time, posOfDest));
         endSprite->runAction(MoveTo::create(time, posOfSrc));
         return;
     }
-    
-    // 不能消除，则移动过去还要返回
+
 	map[ staSprite -> getRow()][staSprite -> getCol() ] = endSprite;
 	map[ endSprite -> getRow()][endSprite -> getCol() ] = staSprite;
 
@@ -663,15 +661,15 @@ void GameScene::onTouchMoved(Touch *touch, Event *unused)
         return;
     }
     
-    // 否则，并非一个有效的移动
+
 }
 
 void GameScene::getColChain(SpriteShape *spr, std::list<SpriteShape *> &chainList)
 {
-	// 添加第一个寿司（自己）
+
     chainList.push_back(spr);
     
-	// 向左查找
+
     int neighborCol = spr->getCol() - 1;
     while (neighborCol >= 0) {
         SpriteShape *neighborSprite = map[spr->getRow()][neighborCol];
@@ -686,7 +684,7 @@ void GameScene::getColChain(SpriteShape *spr, std::list<SpriteShape *> &chainLis
         }
     }
     
-	// 向右查找
+
     neighborCol = spr->getCol() + 1;
     while (neighborCol < COLS) {
         SpriteShape *neighborSprite = map[spr->getRow()][neighborCol];
@@ -744,7 +742,7 @@ void GameScene::menuBackCallback( Ref *pSender )
 
 void GameScene::myClock( float dt )
 {
-	// 时间变化
+
 	--m_time;
 	if( m_time == 0 )
 	{
@@ -756,7 +754,7 @@ void GameScene::myClock( float dt )
 		Label *labelTime = (Label *)this -> getChildByTag(11);
 		labelTime->setScale(0);
 
-		// 游戏结束 动画
+
 		auto gmov = Sprite::create("pic_gameover.png");
 		gmov->setPosition(Point(GAME_SCREEN_WIDTH/2,GAME_SCREEN_HEIGHT*1.5));
 		this->addChild(gmov);
