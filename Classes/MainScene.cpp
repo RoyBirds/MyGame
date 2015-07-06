@@ -57,14 +57,14 @@ bool MainScene::init( )
 void MainScene::menuStartCallback( Ref* pSender )
 {
 	auto scene = GameScene::createScene();
-	CCDirector::sharedDirector()->replaceScene(scene);
+	CCDirector::getInstance()->replaceScene(scene);
 }
 
 void MainScene::menuSetCallback(Ref *pSender)
 {
 	auto scene = Developer::createScene();
-	CCTransitionScene* reScene = CCTransitionPageTurn::create(1.0f, scene, false);
-	CCDirector::sharedDirector()->replaceScene(reScene);
+	TransitionScene* reScene = TransitionPageTurn::create(1.0f, scene, false);
+	Director::getInstance()->replaceScene(reScene);
 }
 
 void MainScene::menuExitCallback(Ref *pSender)

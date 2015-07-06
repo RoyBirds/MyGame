@@ -87,13 +87,13 @@ bool Developer::init()
 void Developer::menuBackCallback( Ref *pSender )
 {
 	auto scene = MainScene::createScene();
-	CCTransitionScene* reScene = CCTransitionPageTurn::create(1.0f, scene, true);
-	CCDirector::sharedDirector()->replaceScene(reScene);
+	TransitionScene* reScene = TransitionPageTurn::create(1.0f, scene, true);
+	CCDirector::getInstance()->replaceScene(reScene);
 }
 
 void Developer::menuMusicCallback( Ref *pSender )
 {
-	auto musicToggleMenuItem = (MenuItemToggle*)pSender;   
+	//auto musicToggleMenuItem = (MenuItemToggle*)pSender;
   
     UserDefault *defaults  = UserDefault::getInstance();  
     if (defaults->getBoolForKey(MUSIC_KEY)) {                                      
@@ -108,7 +108,7 @@ void Developer::menuMusicCallback( Ref *pSender )
 
 void Developer::menuSoundCallback( Ref *pSender )
 {
-	auto soundToggleMenuItem = (MenuItemToggle*)pSender;   
+	//auto soundToggleMenuItem = (MenuItemToggle*)pSender;
   
     UserDefault *defaults  = UserDefault::getInstance();  
 	if (defaults->getBoolForKey(SOUND_KEY)) {                                      

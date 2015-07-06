@@ -21,7 +21,7 @@
 #define MUSIC_KEY "music_key"
 
 //
-#define userDefault CCUserDefault::sharedUserDefault()
+#define userDefault UserDefault::getInstance()
 
 //
 enum DisplayMode{

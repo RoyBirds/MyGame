@@ -52,6 +52,12 @@
 		7AB94C6A95BCF2B4CA3DF1DC /* res in Resources */ = {isa = PBXBuildFile; fileRef = FA144D09A52357282113E0F8 /* res */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9F8B4F24824617F9A0E5789A /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */; };
+		B0EA6AD41B4A1BF40054A7F5 /* Developer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0EA6AC71B4A1BF40054A7F5 /* Developer.cpp */; };
+		B0EA6AD51B4A1BF40054A7F5 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0EA6ACA1B4A1BF40054A7F5 /* GameOverScene.cpp */; };
+		B0EA6AD61B4A1BF40054A7F5 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0EA6ACC1B4A1BF40054A7F5 /* GameScene.cpp */; };
+		B0EA6AD71B4A1BF40054A7F5 /* InkmooFlash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0EA6ACE1B4A1BF40054A7F5 /* InkmooFlash.cpp */; };
+		B0EA6AD81B4A1BF40054A7F5 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0EA6AD01B4A1BF40054A7F5 /* MainScene.cpp */; };
+		B0EA6AD91B4A1BF40054A7F5 /* SpriteShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0EA6AD21B4A1BF40054A7F5 /* SpriteShape.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -108,6 +114,19 @@
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		62FC4D32A80EFB11E0A6CF2A /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac/libcocos2d Mac.a"; sourceTree = "<absolute>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B0EA6AC71B4A1BF40054A7F5 /* Developer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Developer.cpp; sourceTree = "<group>"; };
+		B0EA6AC81B4A1BF40054A7F5 /* Developer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Developer.h; sourceTree = "<group>"; };
+		B0EA6AC91B4A1BF40054A7F5 /* GameDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDefine.h; sourceTree = "<group>"; };
+		B0EA6ACA1B4A1BF40054A7F5 /* GameOverScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScene.cpp; sourceTree = "<group>"; };
+		B0EA6ACB1B4A1BF40054A7F5 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		B0EA6ACC1B4A1BF40054A7F5 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		B0EA6ACD1B4A1BF40054A7F5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		B0EA6ACE1B4A1BF40054A7F5 /* InkmooFlash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InkmooFlash.cpp; sourceTree = "<group>"; };
+		B0EA6ACF1B4A1BF40054A7F5 /* InkmooFlash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InkmooFlash.h; sourceTree = "<group>"; };
+		B0EA6AD01B4A1BF40054A7F5 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainScene.cpp; sourceTree = "<group>"; };
+		B0EA6AD11B4A1BF40054A7F5 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		B0EA6AD21B4A1BF40054A7F5 /* SpriteShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteShape.cpp; sourceTree = "<group>"; };
+		B0EA6AD31B4A1BF40054A7F5 /* SpriteShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteShape.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -235,6 +254,19 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B0EA6AC71B4A1BF40054A7F5 /* Developer.cpp */,
+				B0EA6AC81B4A1BF40054A7F5 /* Developer.h */,
+				B0EA6AC91B4A1BF40054A7F5 /* GameDefine.h */,
+				B0EA6ACA1B4A1BF40054A7F5 /* GameOverScene.cpp */,
+				B0EA6ACB1B4A1BF40054A7F5 /* GameOverScene.h */,
+				B0EA6ACC1B4A1BF40054A7F5 /* GameScene.cpp */,
+				B0EA6ACD1B4A1BF40054A7F5 /* GameScene.h */,
+				B0EA6ACE1B4A1BF40054A7F5 /* InkmooFlash.cpp */,
+				B0EA6ACF1B4A1BF40054A7F5 /* InkmooFlash.h */,
+				B0EA6AD01B4A1BF40054A7F5 /* MainScene.cpp */,
+				B0EA6AD11B4A1BF40054A7F5 /* MainScene.h */,
+				B0EA6AD21B4A1BF40054A7F5 /* SpriteShape.cpp */,
+				B0EA6AD31B4A1BF40054A7F5 /* SpriteShape.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
@@ -420,10 +452,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0EA6AD51B4A1BF40054A7F5 /* GameOverScene.cpp in Sources */,
+				B0EA6AD81B4A1BF40054A7F5 /* MainScene.cpp in Sources */,
+				B0EA6AD41B4A1BF40054A7F5 /* Developer.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				B0EA6AD71B4A1BF40054A7F5 /* InkmooFlash.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				B0EA6AD91B4A1BF40054A7F5 /* SpriteShape.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				B0EA6AD61B4A1BF40054A7F5 /* GameScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,10 +503,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -502,10 +537,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -541,10 +573,7 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
@@ -575,10 +604,7 @@
 					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac",
-				);
+				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",

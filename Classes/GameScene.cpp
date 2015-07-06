@@ -181,7 +181,7 @@ void GameScene::update( float t )
 }
 
 void GameScene::fillSprite() {
-	־
+
 	fourBoom = true;
 	isAction = true;
 	int sum = 0;
@@ -736,8 +736,8 @@ void GameScene::getRowChain(SpriteShape *spr, std::list<SpriteShape *> &chainLis
 void GameScene::menuBackCallback( Ref *pSender )
 {
 	auto scene = MainScene::createScene();
-	CCTransitionScene* reScene = CCTransitionMoveInR::create(1.0f, scene);
-    CCDirector::sharedDirector()->replaceScene(reScene);
+	TransitionScene* reScene = CCTransitionMoveInR::create(1.0f, scene);
+    CCDirector::getInstance()->replaceScene(reScene);
 }
 
 void GameScene::myClock( float dt )
@@ -746,7 +746,7 @@ void GameScene::myClock( float dt )
 	--m_time;
 	if( m_time == 0 )
 	{
-		SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic(); 
+		SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 		if (UserDefault::getInstance()->getBoolForKey(SOUND_KEY)) {                      
 			SimpleAudioEngine::getInstance()->playEffect("music_gameOver.mp3",false);  
 		}
@@ -824,8 +824,8 @@ void GameScene::gameOver(float dt)
 	layer -> setScore( getScore() );
 	scene -> addChild( layer );
 
-	CCTransitionScene* reScene= CCTransitionFadeUp::create(1.0f, scene);
-	CCDirector::sharedDirector()->replaceScene(reScene);
+	TransitionScene* reScene= TransitionFadeUp::create(1.0f, scene);
+	Director::getInstance()->replaceScene(reScene);
 }
 
 void GameScene::addTime( )

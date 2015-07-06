@@ -12,10 +12,10 @@ bool InkmooFlash::init( )
 		return false;
 	}
 
-	CCSpriteFrameCache * cache = CCSpriteFrameCache::sharedSpriteFrameCache();  
+	SpriteFrameCache * cache = SpriteFrameCache::getInstance();
 	cache -> addSpriteFramesWithFile("inkmoo_flash.plist");
 
-	CCSprite *sp = CCSprite::createWithSpriteFrameName("inkmoo_001.png");
+	Sprite *sp = Sprite::createWithSpriteFrameName("inkmoo_001.png");
 	sp -> setScale( 1.5f );
 	sp -> setPosition(Point(GAME_SCREEN_WIDTH/2,GAME_SCREEN_HEIGHT/2));
 	this -> addChild( sp );
@@ -25,11 +25,11 @@ bool InkmooFlash::init( )
 	for( int i = 1 ; i < 79 ; ++i )
 	{
 		sprintf(str,"inkmoo_%03d.png",i);
-		SpriteFrame *fname = cache -> spriteFrameByName( str );
+		SpriteFrame *fname = cache -> getSpriteFrameByName( str );
 		sfme.pushBack( fname );
 	}
           
-	CCAnimation *animation = CCAnimation::createWithSpriteFrames( sfme , 0.05f );
+	Animation *animation = Animation::createWithSpriteFrames( sfme , 0.05f );
 	sp -> runAction ( CCAnimate::create(animation ));
 
 	this->scheduleOnce(schedule_selector(InkmooFlash::jumpToMain), 4);

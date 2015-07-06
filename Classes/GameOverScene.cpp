@@ -56,15 +56,15 @@ bool GameOver::init()
 void GameOver::menuRestartCallback(Ref *pSender)
 {
 	auto scene = GameScene::createScene();
-	CCTransitionScene* reScene = CCTransitionMoveInL::create(1.0f, scene);
-	CCDirector::sharedDirector()->replaceScene(reScene);
+	TransitionScene* reScene = TransitionMoveInL::create(1.0f, scene);
+	CCDirector::getInstance()->replaceScene(reScene);
 }
 
 void GameOver::menuBackCallback( Ref *pSender )
 {
 	auto scene = MainScene::createScene();
-	CCTransitionScene* reScene = CCTransitionSplitRows::create(1.0f, scene);
-	CCDirector::sharedDirector()->replaceScene(reScene);
+	TransitionScene* reScene = TransitionSplitRows::create(1.0f, scene);
+	CCDirector::getInstance()->replaceScene(reScene);
 }
 
 void GameOver::setScore( int sc )
